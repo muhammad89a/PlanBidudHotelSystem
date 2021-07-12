@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.scene.layout.Region?>
+<VBox alignment="CENTER" fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" stylesheets="@../css/style.css"
+      minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16"
+        spacing="110"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="planBidudHotel.controller.FXMLSplashController">
+   <children>
+       <Text styleClass="splash_Title" strokeWidth="0.0" text="Plan Bidud Hotel"/>
+
+       <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../../resources/logo/logo.png" />
+           </image>
+       </ImageView>
+       <VBox alignment="CENTER" spacing="5">
+           <Text styleClass="loading_text" strokeWidth="0.0" text="Loading ..."/>
+           <ProgressBar/>
+       </VBox>
+
+   </children>
+</VBox>
