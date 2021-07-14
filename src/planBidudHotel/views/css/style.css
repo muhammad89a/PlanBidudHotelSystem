@@ -26,8 +26,8 @@
 }
 /*me*/
 .splash_Title{
-    -fx-font: 36px Arial;
-    -fx-fill: black;
+    -fx-font: 36px Serif;
+    -fx-fill: blue;
     -fx-font-weight: bold;
 }
 
@@ -35,4 +35,31 @@
     -fx-font: 20px Arial;
     -fx-fill: #3718ad;
     -fx-font-weight: bold;
+}
+
+.button
+{
+    -fx-background-color : #F3F3F3;
+}
+.button:hover
+{
+    -fx-background-color : #A1C1F4 ;
+}
+.button:pressed
+{
+    -fx-background-color : #73A3EF ;
+}
+
+
+.backButton
+{
+    -fx-background-color : #2d75e8 ;
+}
+.backButton:hover
+{
+    -fx-background-color : #A1C1F4 ;
+}
+.backButton:pressed
+{
+    -fx-background-color : #F3F3F3;
 }

@@ -25,8 +25,9 @@
     </orderEntry>
     <orderEntry type="library" name="net.sf.ucanaccess:ucanaccess:5.0.1" level="project" />
     <orderEntry type="library" name="net.sf.jasperreports:jasperreports:6.17.0" level="project" />
-    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
     <orderEntry type="library" name="com.calendarfx:view:11.10.1" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx-commons:9.1.2" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
   </component>
 </module>

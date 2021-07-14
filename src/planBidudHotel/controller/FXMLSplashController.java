@@ -22,13 +22,13 @@ import java.util.logging.Logger;
 public class FXMLSplashController implements Initializable {
 
     @FXML
-    VBox ap;
+    AnchorPane ap;
 
     class ShowSplashScreen extends Thread{
         @Override
         public void run(){
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 Platform.runLater(() -> {
                     loadLogin();
                 });
@@ -42,7 +42,7 @@ public class FXMLSplashController implements Initializable {
                 Stage stage = null;
                 Parent myNewScene = null;
                 stage = (Stage) ap.getScene().getWindow();
-                myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Constants.LOGIN)));
+                myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Constants.HOME)));
                 Scene scene = new Scene(myNewScene);
                 stage.setScene(scene);
                 stage.setTitle("Login & register");
