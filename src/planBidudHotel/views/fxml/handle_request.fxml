@@ -22,7 +22,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <AnchorPane maxHeight="-Infinity" fx:id="anchorPaneContainer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="600.0" prefWidth="1000.0"
+            prefHeight="600.0" prefWidth="1000.0"  stylesheets="@../css/style.css"
             style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="planBidudHotel.controller.FXMLHandleRequestController">
    <children>
@@ -37,7 +37,7 @@
       <Pane prefHeight="80.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0"
             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="120.0" layoutY="32.0" text="Handle Request" textFill="WHITE">
+            <Label stylesheets="@../css/style.css" layoutX="120.0" layoutY="32.0" text="Handle Request" textFill="WHITE">
                <font>
                   <Font size="20.0"/>
                </font>
@@ -80,14 +80,14 @@
             </VBox>
 
             <JFXButton fx:id="btnAddNewTraveler" layoutX="820.0" layoutY="91.0" contentDisplay="LEFT" mnemonicParsing="false" prefHeight="50.0"
-                    prefWidth="160.0" stylesheets="@../css/style.css" text="Add New Traveler"
+                    prefWidth="160.0" text="Add New Traveler"
                     GridPane.rowIndex="1">
                <graphic>
                   <FontAwesomeIconView fill="#2d75e8" glyphName="PLUS_CIRCLE" size="20"/>
                </graphic>
             </JFXButton>
             <JFXButton fx:id="sendRequestBtn" layoutX="420.0" layoutY="520.0" contentDisplay="LEFT" mnemonicParsing="false" prefHeight="50.0"
-                       prefWidth="160.0" stylesheets="@../css/style.css" text="Send Request" >
+                       prefWidth="160.0" text="Send Request" >
                <graphic>
                   <FontAwesomeIconView fill="#2d75e8" glyphName="PLANE" size="20"/>
                </graphic>
@@ -96,7 +96,7 @@
       </AnchorPane>
 
       <JFXButton fx:id="backBtn"  layoutX="20.0" layoutY="20.0" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBackPressed"
-                 prefHeight="24.0" prefWidth="24.0" stylesheets="@../css/style.css" styleClass="backButton">
+                 prefHeight="24.0" prefWidth="24.0" styleClass="backButton">
          <graphic>
             <FontAwesomeIconView fill="#ffffff" glyphName="ARROW_LEFT" size="32"/>
          </graphic>

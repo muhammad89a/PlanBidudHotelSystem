@@ -19,12 +19,15 @@
     -fx-background-color: #569695;
     -fx-background-radius: 30;
     -fx-border-radius: 30;
-    -fx-text-fill: white;
+    -fx-text-fill: blue;
 }
 .submenu-button:hover {
     -fx-background-color: #70C1C5;
 }
 /*me*/
+.label{
+    -fx-font-weight: light ;
+}
 .splash_Title{
     -fx-font: 36px Serif;
     -fx-fill: blue;

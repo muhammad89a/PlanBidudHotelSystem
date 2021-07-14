@@ -12,9 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import planBidudHotel.utils.Constants;
+import planBidudHotel.utils.Routes;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -67,7 +66,7 @@ public class FXMLOpenRequestController implements Initializable {
     void loadHome() {
         try {
             Stage stage = (Stage) anchorPaneContainer.getScene().getWindow();
-            Parent myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Constants.HOME)));
+            Parent myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Routes.HOME)));
             Scene scene = new Scene(myNewScene);
             stage.setScene(scene);
             stage.setTitle("Home");

@@ -7,10 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import planBidudHotel.utils.Constants;
+import planBidudHotel.utils.Routes;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +40,7 @@ public class FXMLSplashController implements Initializable {
                 Stage stage = null;
                 Parent myNewScene = null;
                 stage = (Stage) ap.getScene().getWindow();
-                myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Constants.HOME)));
+                myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Routes.HOME)));
                 Scene scene = new Scene(myNewScene);
                 stage.setScene(scene);
                 stage.setTitle("Login & register");
