@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.geometry.Insets?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: transparent"
+      prefHeight="100.0" prefWidth="250.0">
+    <VBox style="-fx-background-color: transparent">
+        <Label layoutX="14.0" layoutY="231.0" prefHeight="18.0" prefWidth="200.0" text="Insert your relative ID:" />
+        <TextField fx:id="travelerIdTf"></TextField>
+    </VBox>
+    <Box width="10" opacity="0"/>
+    <Label layoutX="14.0" layoutY="231.0" prefHeight="18.0" prefWidth="200.0" text="what is the relationship?" />
+    <HBox style="-fx-background-color: transparent">
+
+        <RadioButton fx:id="rb1" text="Spouse">
+            <HBox.margin>
+                <Insets right="3.0"/>
+            </HBox.margin>
+        </RadioButton>
+
+        <RadioButton fx:id="rb2" text="Child">
+            <HBox.margin>
+                <Insets right="30.0" bottom="10.0"/>
+            </HBox.margin>
+        </RadioButton>
+
+    </HBox>
+    <Box width="10" opacity="0"/>
+
+
+</VBox>

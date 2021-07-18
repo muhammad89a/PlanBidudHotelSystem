@@ -8,6 +8,10 @@ public class Citizen {
     private String lastName;
     private Date date;
 
+    public Citizen(int id) {
+        this.id = id;
+    }
+
     public Citizen(int id, String firstName, String lastName, Date date) {
         this.id = id;
         this.firstName = firstName;

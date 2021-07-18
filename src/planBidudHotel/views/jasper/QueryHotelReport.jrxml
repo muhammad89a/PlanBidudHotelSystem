@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QueryHotelReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e15d519-eab3-497d-b483-a5c1caac3ee0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="noBin"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  City.CityNAME,Hotel.HotelName,  Hotel.TotalRooms, Hotel.TotalRooms -Request.NumRoomReserved as availableRooms
+        FROM  City,Hotel,Request
+        WHERE City.CityID =  Hotel.CityID
+        AND  Hotel.HotelID =  Request .HotelID
+        AND  Request.ToDate > Date()
+        GROUP BY  Request.HotelID;]]>
+	</queryString>
+	<field name="CITYNAME" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="CITYNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="CITYNAME"/>
+	</field>
+	<field name="HOTELNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="HOTELNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="HOTELNAME"/>
+	</field>
+	<field name="TOTALROOMS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TOTALROOMS"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTALROOMS"/>
+	</field>
+	<field name="AVAILABLEROOMS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AVAILABLEROOMS"/>
+		<property name="com.jaspersoft.studio.field.label" value="AVAILABLEROOMS"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="91f5fe7f-a65f-46a3-81ae-30f2d82c45a2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Hotel Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="80" y="46" width="230" height="22" uuid="6931f6fc-c9e8-4cc3-9eec-607a123c87f7"/>
+				<text><![CDATA[Rooms grouped by Hotel]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="2c4ebb21-8745-45a1-a9ad-477acaac72cb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="babda035-eb48-463f-b63f-45d365bca7b0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47540e06-2bd4-42f4-bc78-4389c74247cd"/>
+				</reportElement>
+				<text><![CDATA[HOTELNAME]]></text>
+			</staticText>
+
+<!--			<staticText>-->
+<!--				<reportElement style="Column header" x="184" y="19" width="126" height="15" uuid="94391239-7e4b-4181-b151-442621769a8e">-->
+<!--					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16fec0aa-992a-4b07-8963-0fb081cb781a"/>-->
+<!--				</reportElement>-->
+<!--				<text><![CDATA[FROMDATE]]></text>-->
+<!--			</staticText>-->
+<!--			<staticText>-->
+<!--				<reportElement style="Column header" x="310" y="19" width="120" height="15" uuid="8aa20498-061d-49bc-936e-cace98d6cc77">-->
+<!--					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d249d3a2-5288-4798-8199-2349d3a7e3b2"/>-->
+<!--				</reportElement>-->
+<!--				<text><![CDATA[TODATE]]></text>-->
+<!--			</staticText>-->
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="ffde0804-90e8-496b-86fb-ee363619f187"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="20c2dccb-1b3f-48a5-a954-6db3d1868d0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47540e06-2bd4-42f4-bc78-4389c74247cd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CITYNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="20c2dccb-1b3f-48a5-a954-6db3d1868d0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47540e06-2bd4-42f4-bc78-4389c74247cd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TOTALROOMS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="20c2dccb-1b3f-48a5-a954-6db3d1868d0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47540e06-2bd4-42f4-bc78-4389c74247cd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{AVAILABLEROOMS}]]></textFieldExpression>
+			</textField>
+<!--			<textField>-->
+<!--				<reportElement style="Detail" x="184" y="0" width="126" height="15" uuid="d020edab-8165-40cf-8f8f-9afefd5a54b8">-->
+<!--					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16fec0aa-992a-4b07-8963-0fb081cb781a"/>-->
+<!--				</reportElement>-->
+<!--				<textFieldExpression><![CDATA[$F{FROMDATE}]]></textFieldExpression>-->
+<!--			</textField>-->
+<!--			<textField>-->
+<!--				<reportElement style="Detail" x="310" y="0" width="120" height="15" uuid="a5d3a499-dc48-4329-b1e1-de0ba1a35cd7">-->
+<!--					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d249d3a2-5288-4798-8199-2349d3a7e3b2"/>-->
+<!--				</reportElement>-->
+<!--				<textFieldExpression><![CDATA[$F{TODATE}]]></textFieldExpression>-->
+<!--			</textField>-->
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="30093aa1-3dd7-4eea-9cc9-e183637af8f4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="c9e9a989-76ae-4c92-a08c-dba3c3185f04"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="736cac2d-8f9a-48bb-b4e7-09302ce0e313"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="c49bc611-71b3-4860-8112-76288860b48d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

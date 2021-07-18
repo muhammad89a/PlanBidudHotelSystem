@@ -1,9 +1,12 @@
 package planBidudHotel.database;
 
 
+import io.reactivex.Observable;
+import net.fortuna.ical4j.model.property.Clazz;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.ucanaccess.jdbc.UcanaccessDriver;
 
 import javax.swing.*;
 import java.io.File;
@@ -19,7 +22,7 @@ public class DatabaseConn {
 
     private static DatabaseConn databaseConn = null;
 
-    private static final String DB_URL = "jdbc:derby:database;create=true";
+    private static final String DB_URL = Consts.CONN_STR;
     private static Connection conn = null;
     private static Statement stmt = null;
 
@@ -27,7 +30,7 @@ public class DatabaseConn {
         createConnection();
     }
 
-    public static   DatabaseConn getInstance() {
+    public static DatabaseConn getInstance() {
         if (databaseConn == null) {
             databaseConn = new DatabaseConn();
         }
@@ -36,13 +39,14 @@ public class DatabaseConn {
 
     void createConnection() {
         try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver").getDeclaredConstructor();
             conn = DriverManager.getConnection(DB_URL);
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException | NoSuchMethodException e) {
+
         }
     }
 
-    //
+//
 //    public boolean deleteBook(listBookController.Book book) {
 //        try {
 //            String deleteStatement = "DELETE FROM BOOK WHERE ID = ?";
@@ -75,11 +79,13 @@ public class DatabaseConn {
 //        return false;
 //    }
 
-    public ResultSet execQuery(String query) {
-        ResultSet result;
+    public Observable<ResultSet> execQuery(String query) {
+        Observable<ResultSet> result;
+
+
         try {
             stmt = conn.createStatement();
-            result = stmt.executeQuery(query);
+            result = Observable.just(stmt.executeQuery(query));
         } catch (SQLException ex) {
             System.out.println(ex.getLocalizedMessage());
             return null;
@@ -92,6 +98,19 @@ public class DatabaseConn {
         try {
             stmt = conn.createStatement();
             stmt.execute(qu);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error:" + ex.getMessage(), "Error Occurred", JOptionPane.ERROR_MESSAGE);
+            System.out.println(ex.getLocalizedMessage());
+            return false;
+        } finally {
+        }
+    }
+
+    public boolean executeUpdate(String query) {
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(query);
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error:" + ex.getMessage(), "Error Occurred", JOptionPane.ERROR_MESSAGE);

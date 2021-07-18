@@ -53,8 +53,8 @@
                         <FontAwesomeIconView fill="#2d75e8" glyphName="WPFORMS" size="50"/>
                     </graphic>
                 </Button>
-                <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks"
-                        prefHeight="181.0" prefWidth="242.0" stylesheets="@../css/style.css" text="Students"
+                <Button fx:id="btnEmployees" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks"
+                        prefHeight="181.0" prefWidth="242.0" stylesheets="@../css/style.css" text="Employees"
                         GridPane.columnIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#2d75e8" glyphName="GROUP" size="50"/>

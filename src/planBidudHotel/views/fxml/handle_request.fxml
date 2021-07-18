@@ -13,14 +13,10 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-
-
-<?import javafx.scene.control.skin.ColorPickerSkin.PickerColorBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import com.calendarfx.view.TimeField?>
-<?import javafx.scene.control.DateCell?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
+
 <AnchorPane maxHeight="-Infinity" fx:id="anchorPaneContainer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="600.0" prefWidth="1000.0"  stylesheets="@../css/style.css"
             style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16"
@@ -33,7 +29,6 @@
          </image>
       </ImageView>
 
-
       <Pane prefHeight="80.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0"
             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -43,8 +38,6 @@
                </font>
             </Label>
 
-
-
             <FontAwesomeIconView fill="WHITE" glyphName="WPFORMS" layoutX="80.0" layoutY="48.0" size="24"/>
          </children>
       </Pane>
@@ -53,7 +46,7 @@
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
          <children>
 
-            <ProgressIndicator layoutX="480.0" layoutY="280.0"  />
+            <ProgressIndicator fx:id="progressIndicator" layoutX="480.0" layoutY="280.0"  />
 
             <VBox layoutX="80.0" layoutY="100.0">
                <Label layoutX="14.0" layoutY="231.0" prefHeight="18.0" prefWidth="200.0" text="Insert ID:" />

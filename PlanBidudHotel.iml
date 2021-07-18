@@ -29,5 +29,7 @@
     <orderEntry type="library" name="de.jensd:fontawesomefx-commons:9.1.2" level="project" />
     <orderEntry type="library" name="de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
+    <orderEntry type="library" name="io.reactivex:rxjavafx:2.0.2" level="project" />
+    <orderEntry type="library" name="commons-validator:commons-validator:1.7" level="project" />
   </component>
 </module>

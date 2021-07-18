@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class FXMLSplashController implements Initializable {
+public class FXMLSplashController extends  BaseFXMLController implements Initializable {
 
     @FXML
     AnchorPane ap;
@@ -28,28 +28,13 @@ public class FXMLSplashController implements Initializable {
             try {
                 Thread.sleep(2000);
                 Platform.runLater(() -> {
-                    loadLogin();
+                    loadScreen(Routes.HOME,"Home",ap);
                 });
             } catch (InterruptedException ex) {
                 Logger.getLogger(FXMLSplashController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        void loadLogin() {
-            try {
-                Stage stage = null;
-                Parent myNewScene = null;
-                stage = (Stage) ap.getScene().getWindow();
-                myNewScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Routes.HOME)));
-                Scene scene = new Scene(myNewScene);
-                stage.setScene(scene);
-                stage.setTitle("Login & register");
-                stage.show();
-
-            } catch (IOException ex) {
-                Logger.getLogger("").log(Level.SEVERE, null, ex);
-            }
-        }
 
     }
 

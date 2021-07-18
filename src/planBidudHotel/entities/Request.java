@@ -1,6 +1,7 @@
 package planBidudHotel.entities;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class Request {
 
@@ -13,6 +14,14 @@ public class Request {
     private Date requestOpenDate;
     private Status status;
     private int numberRoomReserved;
+
+    public Request(String email, String phoneNo, String fightNum, Date expectedLandDate, Date requestOpenDate) {
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.fightNum = fightNum;
+        this.expectedLandDate = expectedLandDate;
+        this.requestOpenDate = requestOpenDate;
+    }
 
     public Request(int id, String email, String phoneNo, String fightNum, Date expectedLandDate, Date actualLandDate, Date requestOpenDate, Status status, int numberRoomReserved) {
         this.id = id;

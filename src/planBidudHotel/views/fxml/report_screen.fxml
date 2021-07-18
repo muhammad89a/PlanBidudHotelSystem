@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane maxHeight="-Infinity" fx:id="pane" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/style.css"
+            style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="planBidudHotel.controller.FXMLReportsController">
+    <children>
+        <ImageView fitHeight="600.0" fitWidth="1000.0" scaleX="1.67" scaleY="1.67" opacity="0.33" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../resources/image/airplane_window.jpeg"/>
+            </image>
+        </ImageView>
+
+        <Pane prefHeight="80.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="120.0" layoutY="32.0" text="Reports" textFill="WHITE">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+                <FontAwesomeIconView fill="WHITE" glyphName="FILE_PDF_ALT" layoutX="80.0" layoutY="48.0" size="24"/>
+            </children>
+        </Pane>
+
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
+                    xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+
+                <JFXButton fx:id="btnAddNewTraveler" layoutX="120.0" layoutY="91.0" contentDisplay="LEFT"
+                           mnemonicParsing="false" prefHeight="50.0"
+                           prefWidth="160.0" text="Add New Traveler" onAction="#getReport1"
+                           GridPane.rowIndex="1">
+                    <graphic>
+                        <FontAwesomeIconView fill="#2d75e8" glyphName="PLUS_CIRCLE" size="20"/>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+
+        <JFXButton fx:id="backBtn" layoutX="20.0" layoutY="20.0" contentDisplay="CENTER" mnemonicParsing="false"
+                   onAction="#onBackPressed"
+                   prefHeight="24.0" prefWidth="24.0" styleClass="backButton">
+            <graphic>
+                <FontAwesomeIconView fill="#ffffff" glyphName="ARROW_LEFT" size="32"/>
+            </graphic>
+        </JFXButton>
+    </children>
+</AnchorPane>

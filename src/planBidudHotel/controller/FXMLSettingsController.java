@@ -11,13 +11,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.hsqldb.rights.User;
 import planBidudHotel.utils.Constant;
+import planBidudHotel.utils.Routes;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import  java.util.prefs.*;
 import  java.util.prefs.*;
 
-public class FXMLSettingsController implements Initializable {
+public class FXMLSettingsController extends BaseFXMLController implements Initializable {
+
     @FXML
     public JFXButton backBtn;
 
@@ -26,11 +28,11 @@ public class FXMLSettingsController implements Initializable {
 
     @FXML
     private TextField username;
+
     @FXML
     private PasswordField password;
 
     private Preferences prefs = Preferences.userNodeForPackage(User.class);
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,10 +49,10 @@ public class FXMLSettingsController implements Initializable {
 
     private void initDefaultValues() {
         username.setText(prefs.get(Constant.USER_NAME, "Muhammad"));
-        password.setText(prefs.get(Constant.USER_PASSWORE, "$Mahamid$"));
+        password.setText(prefs.get(Constant.USER_PASSWORE, "Mahamid"));
     }
 
     public void onBackPressed(ActionEvent actionEvent) {
-
+        loadScreen(Routes.HOME,"Home",anchorPaneContainer);
     }
 }

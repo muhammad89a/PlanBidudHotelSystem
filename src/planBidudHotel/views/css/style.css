@@ -28,6 +28,10 @@
 .label{
     -fx-font-weight: light ;
 }
+.error-label{
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+}
 .splash_Title{
     -fx-font: 36px Serif;
     -fx-fill: blue;

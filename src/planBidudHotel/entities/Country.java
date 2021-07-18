@@ -37,6 +37,10 @@ public class Country {
 
     @Override
     public String toString() {
+        return name;
+    }
+
+    public String toPrint() {
         return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

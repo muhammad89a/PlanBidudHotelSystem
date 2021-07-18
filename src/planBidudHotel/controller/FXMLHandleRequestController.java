@@ -3,6 +3,12 @@ package planBidudHotel.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.Single;
+import io.reactivex.internal.operators.observable.ObservableJust;
+import io.reactivex.rxjavafx.schedulers.JavaFxScheduler;
+import io.reactivex.schedulers.Schedulers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +16,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import planBidudHotel.database.DataBaseAPI;
+import planBidudHotel.entities.Request;
 import planBidudHotel.utils.Routes;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -28,6 +38,9 @@ public class FXMLHandleRequestController implements Initializable {
 
     @FXML
     private JFXButton btnAddNewTraveler;
+
+    @FXML
+    private ProgressIndicator progressIndicator;
 
     @FXML
     private Button backBtn;
@@ -54,7 +67,7 @@ public class FXMLHandleRequestController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        getRequests();
     }
 
     public void onBackPressed(ActionEvent mouseEvent) {
@@ -74,5 +87,26 @@ public class FXMLHandleRequestController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger("").log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void getRequests() {
+        DataBaseAPI.getInstance().getRequests()
+                .observeOn(Schedulers.io())
+                .doOnSubscribe((it)->{
+                    System.out.println("doOnSubscribe");
+                    progressIndicator.setVisible(true);
+                })
+                .subscribeOn(JavaFxScheduler.platform())
+                .doAfterTerminate(()->{
+                    System.out.println("doAfterTerminate");
+                    progressIndicator.setVisible(false);
+                })
+                .subscribe(it -> {
+                    for (Request rs : it) {
+                        System.out.println(rs);
+                    }
+                })
+                .dispose();
+
     }
 }
